@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import BrokerClient from "./BrokerClient";
 
 export default async function AdminBrokerPage() {
-  const baseUrl = "http://localhost:5000/api/v1";
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5000/api/v1";
   
   try {
     const [brokersRes, statsRes] = await Promise.all([

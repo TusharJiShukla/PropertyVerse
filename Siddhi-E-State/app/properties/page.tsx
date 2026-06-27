@@ -16,7 +16,7 @@ export default async function PropertiesPage(props: { searchParams: Promise<{ [k
   query.append("sortBy", "createdAt");
   query.append("sortOrder", "desc");
   
-  const baseUrl = "http://localhost:5000/api/v1";
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5000/api/v1";
   
   try {
     const [propsRes, allPropsRes, citiesRes] = await Promise.all([
