@@ -17,6 +17,7 @@ app.use(
     origin: [
       "http://localhost:3000",
       "http://localhost:5173",
+      "https://property-verse-six.vercel.app",
     ],
     credentials: true,
   })
