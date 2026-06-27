@@ -165,7 +165,7 @@ export default function PropertyDetailsClient({ id }: { id: string }) {
         
         {/* Header */}
         <div className="mb-8">
-          <div className="flex justify-between items-start">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div>
               <h1 className="text-4xl font-extrabold text-[#d6a243] mb-2">{property.title}</h1>
               <p className="flex items-center text-gray-600 text-lg">
@@ -173,7 +173,7 @@ export default function PropertyDetailsClient({ id }: { id: string }) {
                 {property.location} {property.city ? `, ${property.city}` : ""}
               </p>
             </div>
-            <div className="text-right">
+            <div className="text-left md:text-right w-full md:w-auto border-t md:border-t-0 pt-4 md:pt-0">
               <p className="text-3xl font-bold text-green-700">₹{property.discountedPrice.toLocaleString()}</p>
               {property.originalPrice > property.discountedPrice && (
                 <p className="text-lg text-red-400 line-through">₹{property.originalPrice.toLocaleString()}</p>
@@ -233,7 +233,7 @@ export default function PropertyDetailsClient({ id }: { id: string }) {
                 <h2 className="text-2xl font-bold text-gray-800">AI Match Score</h2>
               </div>
               <p className="text-gray-600 mb-4">Describe what you are looking for, and our AI will tell you if this property is a good fit.</p>
-              <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <input 
                   type="text" 
                   value={matchInput}
@@ -245,14 +245,14 @@ export default function PropertyDetailsClient({ id }: { id: string }) {
                 <button 
                   onClick={handleMatchScore}
                   disabled={isMatching || !matchInput.trim()}
-                  className="bg-[#d6a243] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#b48735] transition disabled:opacity-70 flex items-center gap-2"
+                  className="bg-[#d6a243] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#b48735] transition disabled:opacity-70 flex items-center justify-center gap-2 w-full sm:w-auto"
                 >
                   {isMatching ? "Analyzing..." : "Analyze"}
                 </button>
               </div>
 
               {matchScore !== null && (
-                <div className="mt-6 bg-white p-6 rounded-xl border border-yellow-100 shadow-sm flex items-start gap-6">
+                <div className="mt-6 bg-white p-6 rounded-xl border border-yellow-100 shadow-sm flex flex-col sm:flex-row items-start gap-6">
                   <div className="flex flex-col items-center justify-center">
                     <div className={`text-4xl font-black ${matchScore >= 80 ? 'text-green-500' : matchScore >= 50 ? 'text-yellow-500' : 'text-red-500'}`}>
                       {matchScore}%
