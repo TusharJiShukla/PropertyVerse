@@ -77,7 +77,7 @@ export default function BrokerPage() {
           limit: 6,
           verified: "true",
           status: "active",
-          sortBy: "rating",
+          sortBy: "createdAt",
           sortOrder: "desc",
         },
       });
@@ -169,10 +169,6 @@ export default function BrokerPage() {
                 <div className="text-sm text-gray-600">Verified Brokers</div>
               </div>
               <div className="bg-white rounded-lg p-4 text-center shadow">
-                <div className="text-2xl font-bold text-[#d6a243]">{stats.averageRating?.toFixed(1) || 0}</div>
-                <div className="text-sm text-gray-600">Avg Rating</div>
-              </div>
-              <div className="bg-white rounded-lg p-4 text-center shadow">
                 <div className="text-2xl font-bold text-[#d6a243]">{stats.byStatus?.active || 0}</div>
                 <div className="text-sm text-gray-600">Active Brokers</div>
               </div>
@@ -201,20 +197,9 @@ export default function BrokerPage() {
                     )}
                   </div>
                   
-                  {/* Rating Stars */}
                   <div className="flex items-center mb-2">
-                    {[...Array(5)].map((_, i) => (
-                      <FaStar
-                        key={i}
-                        className={`text-sm ${
-                          i < Math.floor(broker.rating)
-                            ? "text-yellow-400"
-                            : "text-gray-300"
-                        }`}
-                      />
-                    ))}
-                    <span className="text-xs text-gray-500 ml-1">
-                      ({broker.totalDeals} deals)
+                    <span className="text-xs text-gray-500 font-semibold bg-gray-100 px-2 py-1 rounded">
+                      Deals closed: {broker.totalDeals}
                     </span>
                   </div>
 

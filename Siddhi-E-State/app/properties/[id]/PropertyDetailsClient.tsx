@@ -329,7 +329,7 @@ export default function PropertyDetailsClient({ id }: { id: string }) {
                           <h4 className="font-bold text-gray-800 flex items-center gap-1">
                             {broker.name} <FaCheckCircle className="text-blue-500 text-xs" title="Verified" />
                           </h4>
-                          <p className="text-xs text-gray-500">{broker.experience} yrs exp | ⭐ {broker.rating}/5</p>
+                          <p className="text-xs text-gray-500">{broker.experience} yrs exp</p>
                         </div>
                       </div>
                       <div className="flex gap-2 mt-2">
